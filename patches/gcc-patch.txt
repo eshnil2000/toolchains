@@ -1,14 +1,15 @@
 diff -durN gcc-6.2.0/gcc/config/i386/t-x86_64-elf gcc-6.2.0.patched/gcc/config/i386/t-x86_64-elf
 --- gcc-6.2.0/gcc/config/i386/t-x86_64-elf	1969-12-31 16:00:00.000000000 -0800
 +++ gcc-6.2.0.patched/gcc/config/i386/t-x86_64-elf	2016-09-30 11:55:53.602700086 -0700
-@@ -0,0 +1,7 @@
+@@ -0,0 +1,8 @@
 +# Add redzoneless libgcc
 +MULTILIB_OPTIONS  += mno-red-zone
 +MULTILIB_DIRNAMES += no-red-zone
 +
 +# Build a 32bit libgcc as well
-+MULTILIB_OPTIONS  += m32
-+MULTILIB_DIRNAMES  += 32
++# NOTE: disabled for now, does not seem to build properly with gcc 10
++#MULTILIB_OPTIONS  += m32
++#MULTILIB_DIRNAMES  += 32
 diff -durN gcc-7.4.0/gcc/config/riscv/t-elf-multilib gcc-7.4.0.patched/gcc/config/riscv/t-elf-multilib
 --- gcc-7.4.0/gcc/config/riscv/t-elf-multilib	2017-02-06 13:38:37.794530000 -0800
 +++ gcc-7.4.0.patched/gcc/config/riscv/t-elf-multilib	2019-11-02 15:51:54.556652490 -0700
